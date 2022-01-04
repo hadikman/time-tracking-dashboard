@@ -27,7 +27,7 @@ body {
   display: grid;
   place-content: center;
   row-gap: 2rem;
-  padding: 5rem 0;
+  padding: 3rem 0;
 }
 /******* Person Card Style *******/
 .report {
@@ -66,9 +66,10 @@ body {
   display: flex;
   justify-content: space-around;
   color: var(--pale-blue);
-  padding: 1.5rem 1rem;
+  padding: 1.5rem;
 }
 .date span {
+  font-size: 1.1rem;
   cursor: pointer;
   transition: color 0.1s linear;
 }
@@ -167,7 +168,7 @@ body {
   .timeTrackingSection {
     max-width: var(--desktop-width);
     gap: 2rem;
-    grid-template-columns: 220px repeat(3, 250px);
+    grid-template-columns: 240px repeat(3, 250px);
     margin: auto;
   }
   .report {
