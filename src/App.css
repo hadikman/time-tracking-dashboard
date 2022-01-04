@@ -1,38 +1,207 @@
-.App {
-  text-align: center;
-}
+:root {
+  --mobile-width: 375px;
+  --desktop-width: 1440px;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+  --primary-blue: hsl(246, 80%, 60%);
+  --work-bg-clr: hsl(15, 100%, 70%);
+  --play-bg-clr: hsl(195, 74%, 62%);
+  --study-bg-clr: hsl(348, 100%, 68%);
+  --exercise-bg-clr: hsl(145, 58%, 55%);
+  --social-bg-clr: hsl(264, 64%, 52%);
+  --self-care-bg-clr: hsl(43, 84%, 65%);
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+  --very-dark-blue: hsl(226, 43%, 10%);
+  --dark-blue: hsl(235, 46%, 20%);
+  --desaturated-blue: hsl(235, 45%, 61%);
+  --pale-blue: hsl(236, 100%, 87%);
 
-.App-header {
-  background-color: #282c34;
+  --card-height: 4rem;
+  --card-padding: 2rem;
+  --card-border-radius: 10px;
+}
+body {
+  background-color: var(--very-dark-blue);
+}
+.timeTrackingSection {
   min-height: 100vh;
+  display: grid;
+  place-content: center;
+  row-gap: 2rem;
+  padding: 5rem 0;
+}
+/******* Person Card Style *******/
+.report {
+  background-color: var(--dark-blue);
+  border-radius: var(--card-border-radius);
+}
+.profile {
   display: flex;
-  flex-direction: column;
+  column-gap: 1rem;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: var(--primary-blue);
+  border-radius: var(--card-border-radius);
+  padding: var(--card-padding);
 }
-
-.App-link {
-  color: #61dafb;
+.image {
+  width: 4rem;
+  height: 4rem;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  border-radius: 100%;
+}
+.person {
+  color: var(--pale-blue);
+}
+.person h4 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #fff;
+}
+.date {
+  display: flex;
+  justify-content: space-around;
+  color: var(--pale-blue);
+  padding: 1.5rem 1rem;
+}
+.date span {
+  cursor: pointer;
+  transition: color 0.1s linear;
+}
+/******* Person Report Style *******/
+.card {
+  height: 9rem;
+  border-radius: var(--card-border-radius);
+  position: relative;
+  overflow: hidden;
+}
+.frontCard {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: var(--pale-blue);
+  background-color: var(--dark-blue);
+  border-radius: var(--card-border-radius);
+  transition: background-color 0.1s linear;
+}
+.cardIcon {
+  position: absolute;
+  top: 0;
+  right: 1rem;
+  width: 4rem;
+  transform: translateY(-10px);
+}
+.header,
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1.5rem 1.2rem;
+}
+.header {
+  margin-bottom: 0.8rem;
+}
+.content {
+  margin-top: 0;
+}
+.title {
+  font-size: 18px;
+}
+.header h4,
+.content h4 {
+  color: #fff;
+}
+.header h4 {
+  font-weight: 400;
+}
+.header img {
+  cursor: pointer;
+}
+.content h4 {
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+.content span {
+  font-size: 0.9rem;
+}
+.work {
+  background-color: var(--work-bg-clr);
+}
+.play {
+  background-color: var(--play-bg-clr);
+}
+.study {
+  background-color: var(--study-bg-clr);
+}
+.exercise {
+  background-color: var(--exercise-bg-clr);
+}
+.social {
+  background-color: var(--social-bg-clr);
+}
+.self-care {
+  background-color: var(--self-care-bg-clr);
+}
+/******* Helper Classes *******/
+.active {
+  color: #fff;
+}
+/******* Hover, Focus and Active States *******/
+.date span:hover {
+  color: #fff;
+}
+.frontCard:hover {
+  background-color: var(--desaturated-blue);
+}
+.header img:hover {
+  color: #fff;
+}
+/******* Responsive *******/
+@media screen and (min-width: 375px) {
+  .timeTrackingSection {
+    max-width: var(--desktop-width);
+    gap: 2rem;
+    grid-template-columns: 220px repeat(3, 250px);
+    margin: auto;
   }
-  to {
-    transform: rotate(360deg);
+  .report {
+    grid-row: 1 / 3;
+  }
+  .profile {
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 2rem;
+    padding-bottom: 5rem;
+  }
+  .card {
+    height: auto;
+  }
+  .cardIcon {
+    margin-bottom: unset;
+  }
+  .person h4 {
+    font-size: 2.5rem;
+    font-weight: 300;
+  }
+  .date {
+    flex-direction: column;
+    row-gap: 1rem;
+  }
+  .header {
+    margin-bottom: 1.2rem;
+  }
+  .content {
+    flex-direction: column;
+    align-items: unset;
+    row-gap: 0.8rem;
+  }
+  .content h4 {
+    font-size: 3rem;
   }
 }
