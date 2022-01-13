@@ -4,7 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## live Site
 
-[https://eager-wright-e0291d.netlify.app/]
+https://eager-wright-e0291d.netlify.app/
 
 ## Available Scripts
 
